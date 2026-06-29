@@ -1,40 +1,44 @@
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include "receipt.hpp"
+
 
 using namespace std;
 
 int main() {
-    double item1 = 0.0;
-    double item2 = 0.0;
-    double item3 = 0.0;
-    double tipPercent = 0.0;
+    double p1; 
+    double p2; 
+    double p3; 
+    double tip_amount;
 
-    cout << "Receipt Calculator" << endl << endl;
+    cout << "Receipt Calculator\n\n";
 
     cout << "Enter price for item 1: ";
-    cin >> item1;
-
+    cin >> p1;
+    
     cout << "Enter price for item 2: ";
-    cin >> item2;
-
+    cin >> p2;
+    
     cout << "Enter price for item 3: ";
-    cin >> item3;
-
+    cin >> p3;
+    
     cout << "Enter tip percentage: ";
-    cin >> tipPercent;
+    cin >> tip_amount;
 
-    double subtotal = calculateSubtotal(item1, item2, item3);
-    double tax = calculateTax(subtotal);
-    double tip = calculateTip(subtotal, tipPercent);
-    double total = calculateTotal(subtotal, tax, tip);
+    double sub = calculateSubtotal(p1, p2, p3);
+    double myTax = calculateTax(sub);
+    double myTip = calculateTip(sub, tip_amount);
+    double total_price = calculateTotal(sub, myTax, myTip);
 
-    cout << fixed << setprecision(2);
-    cout << endl;
-    cout << "Subtotal: $" << subtotal << endl;
-    cout << "Tax: $" << tax << endl;
-    cout << "Tip: $" << tip << endl;
-    cout << "Total: $" << total << endl;
+    
+    cout << fixed;
+    cout << setprecision(2);
+    
+    cout << endl; 
+    cout << "Subtotal: $" << sub << endl;
+    cout << "Tax: $" << myTax << endl;
+    cout << "Tip: $" << myTip << endl;
+    cout << "Total: $" << total_price << "\n";
 
-    return 0;
+    return 0; 
 }
